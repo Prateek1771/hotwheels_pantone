@@ -1,6 +1,6 @@
 # Hot Wheels × Pantone — Silver Series - 
 
-Demo: Website[https://hotwheels-pantone.vercel.app]
+Demo: Website([https://hotwheels-pantone.vercel.app])
 Promo: video[https://youtu.be/CzXD7SorU98] 
 
 An interactive, scroll-driven showcase for the Hot Wheels × Pantone Silver Series collection. Six die-cast vehicles, each paired with a distinct Pantone color, with deep-dive origin stories and full media galleries.
