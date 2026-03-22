@@ -20,44 +20,53 @@ export default function App() {
   const [progColor, setProgColor] = useState('#C8102E');
   const [openCarIdx, setOpenCarIdx] = useState(null);
   const wrapRef = useRef(null);
+  const sectionsRef = useRef([]);
+  const rafRef = useRef(null);
 
-  function getAllSections() {
+  useEffect(() => {
     const wrap = wrapRef.current;
-    if (!wrap) return [];
-    return [
+    if (!wrap) return;
+    sectionsRef.current = [
       wrap.querySelector('.intro'),
       ...Array.from(wrap.querySelectorAll('.exhibit')),
       wrap.querySelector('.finale'),
     ].filter(Boolean);
-  }
+  }, []);
 
   const handleScroll = useCallback(() => {
-    const wrap = wrapRef.current;
-    if (!wrap) return;
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      const wrap = wrapRef.current;
+      if (!wrap) return;
 
-    const total = wrap.scrollHeight - wrap.clientHeight;
-    setProgWidth(total > 0 ? `${(wrap.scrollTop / total) * 100}%` : '0%');
+      const total = wrap.scrollHeight - wrap.clientHeight;
+      setProgWidth(total > 0 ? `${(wrap.scrollTop / total) * 100}%` : '0%');
 
-    const sections = getAllSections();
-    const mid = wrap.scrollTop + wrap.clientHeight / 2;
-    let idx = 0;
-    sections.forEach((s, i) => { if (s.offsetTop <= mid) idx = i; });
-    setActiveIdx(idx);
+      const sections = sectionsRef.current;
+      const mid = wrap.scrollTop + wrap.clientHeight / 2;
+      let idx = 0;
+      sections.forEach((s, i) => { if (s.offsetTop <= mid) idx = i; });
+      setActiveIdx(idx);
 
-    const ei = idx - 1;
-    setProgColor(ei >= 0 && ei < colors.length ? colors[ei] : '#C8102E');
+      const ei = idx - 1;
+      setProgColor(ei >= 0 && ei < colors.length ? colors[ei] : '#C8102E');
+    });
   }, []);
 
   useEffect(() => {
     const wrap = wrapRef.current;
     if (!wrap) return;
     wrap.addEventListener('scroll', handleScroll, { passive: true });
-    return () => wrap.removeEventListener('scroll', handleScroll);
+    return () => {
+      wrap.removeEventListener('scroll', handleScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, [handleScroll]);
 
   function scrollToSection(i) {
-    const sections = getAllSections();
-    if (sections[i]) sections[i].scrollIntoView({ behavior: 'smooth' });
+    const s = sectionsRef.current[i];
+    if (s) s.scrollIntoView({ behavior: 'smooth' });
   }
 
   const counter = `${String(activeIdx + 1).padStart(2, '0')} / ${String(TOTAL_SECTIONS).padStart(2, '0')}`;

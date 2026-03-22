@@ -50,6 +50,7 @@ html, body { height:100%; overflow:hidden; font-family:'Barlow Condensed',sans-s
   transform: translateY(-101%);
   animation: stripLifeV 2.3s cubic-bezier(0.16,1,0.3,1) forwards;
   overflow: hidden;
+  will-change: transform;
 }
 .loader-car {
   height: 55%;
@@ -84,10 +85,13 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 #wrap::-webkit-scrollbar { display:none; }
 
 /* ── SPEED LINES ── */
-@keyframes speedDrift { from{background-position:0 0} to{background-position:119px 0} }
-.speed-bg {
+@keyframes speedDrift { from{transform:translateX(0)} to{transform:translateX(119px)} }
+.speed-bg { position:relative; overflow:hidden; }
+.speed-bg::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
   background-image:repeating-linear-gradient(90deg,transparent 0px,transparent 118px,rgba(255,255,255,.018) 118px,rgba(255,255,255,.018) 119px);
   animation:speedDrift 5s linear infinite;
+  will-change:transform;
 }
 
 /* ── INTRO: HORIZONTAL SPLIT ── */
@@ -97,7 +101,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
   0%,100% { transform:translateY(-50%) scale(1); opacity:.025; }
   50%      { transform:translateY(-52%) scale(1.03); opacity:.04; }
 }
-.intro-bg-type { position:absolute; font-family:'Barlow Condensed',sans-serif; font-size:30vw; font-weight:900; letter-spacing:-.03em; color:rgba(255,255,255,.025); user-select:none; line-height:1; top:50%; left:-2%; transform:translateY(-50%); pointer-events:none; animation:bgBreathe 14s ease-in-out infinite; }
+.intro-bg-type { position:absolute; font-family:'Barlow Condensed',sans-serif; font-size:30vw; font-weight:900; letter-spacing:-.03em; color:rgba(255,255,255,.025); user-select:none; line-height:1; top:50%; left:-2%; transform:translateY(-50%); pointer-events:none; animation:bgBreathe 14s ease-in-out infinite; will-change:transform; }
 .intro-left { position:relative; z-index:2; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:60px 48px 60px; }
 .intro-title { font-family:'Barlow Condensed',sans-serif; font-size:clamp(48px,7vw,96px); font-weight:900; text-transform:uppercase; line-height:.88; letter-spacing:.01em; }
 .intro-title .outline { -webkit-text-stroke:1.5px rgba(255,255,255,.2); color:transparent; display:block; font-size:.36em; letter-spacing:.32em; }
@@ -219,7 +223,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 
 /* ── TICKER ── */
 .ticker { height:48px; background:var(--red); overflow:hidden; display:flex; align-items:center; scroll-snap-align:none; }
-.ticker-inner { display:inline-flex; white-space:nowrap; animation:tick 20s linear infinite; }
+.ticker-inner { display:inline-flex; white-space:nowrap; animation:tick 20s linear infinite; will-change:transform; }
 .ticker:hover .ticker-inner { animation-play-state:paused; }
 .ticker-inner span { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:#fff; padding:0 32px; }
 .ticker-inner .dot { color:rgba(255,255,255,.45); padding:0; font-size:16px; }
@@ -231,8 +235,12 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 /* LEFT: Pantone color panel */
 .ex-left {
   position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:52px 44px;
+}
+.ex-left::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
   background-image:repeating-linear-gradient(90deg,transparent 0px,transparent 118px,rgba(255,255,255,.018) 118px,rgba(255,255,255,.018) 119px);
   animation:speedDrift 6s linear infinite;
+  will-change:transform;
 }
 .ex-bg-num {
   position:absolute; font-family:'Barlow Condensed',sans-serif; font-size:30vw; font-weight:900; line-height:1;
@@ -257,10 +265,14 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 /* RIGHT: Dark car panel (clickable) */
 .ex-right {
   position:relative; overflow:hidden; background:var(--bg);
-  background-image:repeating-linear-gradient(90deg,transparent 0px,transparent 118px,rgba(255,255,255,.018) 118px,rgba(255,255,255,.018) 119px);
-  animation:speedDrift 5s linear infinite;
   display:flex; flex-direction:column; justify-content:flex-end; padding:60px 52px 52px 44px;
   cursor:pointer; perspective:1400px;
+}
+.ex-right::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background-image:repeating-linear-gradient(90deg,transparent 0px,transparent 118px,rgba(255,255,255,.018) 118px,rgba(255,255,255,.018) 119px);
+  animation:speedDrift 5s linear infinite;
+  will-change:transform;
 }
 .ex-glow { position:absolute; width:75%; height:75%; border-radius:50%; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; filter:blur(48px); opacity:0; transition:opacity .6s .2s, width .5s ease, height .5s ease; }
 .exhibit.in-view .ex-glow { opacity:1; }
@@ -272,7 +284,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 .ex-right:hover .ex-car-wrap img { transform:scale(1.04) rotateY(-5deg) rotateX(1.5deg); }
 
 .ex-package { position:absolute; top:36px; right:36px; width:100px; z-index:3; transform:rotate(5deg) translateY(-18px); opacity:0; transition:opacity .5s ease .2s; }
-.exhibit.in-view .ex-package { opacity:1; animation:pkgFloat 4.5s ease-in-out infinite; }
+.exhibit.in-view .ex-package { opacity:1; animation:pkgFloat 4.5s ease-in-out infinite; will-change:transform; }
 @keyframes pkgFloat {
   0%,100% { transform:rotate(5deg) translateY(0); }
   50%      { transform:rotate(5deg) translateY(-10px); }

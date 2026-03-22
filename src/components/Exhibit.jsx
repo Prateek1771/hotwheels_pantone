@@ -35,10 +35,10 @@ export default function Exhibit({ car, index, onCarClick }) {
           style={{ background: `radial-gradient(ellipse,${car.color} 0%,transparent 70%)` }}
         />
         <div className="ex-package">
-          <img src={car.card} alt={`${car.name} packaging`} />
+          <img src={car.card} alt={`${car.name} packaging`} loading="lazy" />
         </div>
         <div className="ex-car-wrap">
-          <img src={car.img} alt={car.name} />
+          <img src={car.img} alt={car.name} loading="lazy" />
         </div>
         <div className="ex-info">
           <div className="ex-series">Silver Series · {car.num} of 06</div>
