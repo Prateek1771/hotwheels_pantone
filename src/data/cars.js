@@ -2,7 +2,7 @@ const cars = [
   {
     pantone:"533", color:"#1B3054", textColor:"#fff", num:"01",
     name:"Nissan Fairlady Z",
-    img:"/assets/c1.jpg", photo:"/assets/car1_photo.jpg", card:"/assets/card1.png", video:"/assets/car1_vid.mp4",
+    img:"/assets/c1.webp", photo:"/assets/car1_photo.jpg", card:"/assets/card1.png", video:"/video/car1_vid.mp4",
     real:{
       make:"Nissan", model:"Fairlady Z (S30)", year:"1969",
       origin:"Japan", engine:"2.4L L24 Inline-6",
@@ -18,7 +18,7 @@ const cars = [
   {
     pantone:"195", color:"#6B1934", textColor:"#fff", num:"02",
     name:"'69 Ford Mustang Boss",
-    img:"/assets/c2.jpg", photo:"/assets/car2_photo.webp", card:"/assets/card2.png", video:"/assets/car2_vid.mp4",
+    img:"/assets/c2.webp", photo:"/assets/car2_photo.webp", card:"/assets/card2.png", video:"/video/car2_vid.mp4",
     real:{
       make:"Ford", model:"Mustang Boss 302", year:"1969",
       origin:"USA", engine:"5.0L Windsor V8",
@@ -34,7 +34,7 @@ const cars = [
   {
     pantone:"186", color:"#C8102E", textColor:"#fff", num:"03",
     name:"Twin Mill III",
-    img:"/assets/c3.jpg", photo:"/assets/car3_photo.jpg", card:"/assets/card3.png", video:"/assets/car3_vid.mp4",
+    img:"/assets/c3.webp", photo:"/assets/car3_photo.jpg", card:"/assets/card3.png", video:"/video/car3_vid.mp4",
     real:{
       make:"Hot Wheels", model:"Twin Mill III (Concept)", year:"2000s",
       origin:"USA", engine:"Dual 427 V8 (Concept)",
@@ -50,7 +50,7 @@ const cars = [
   {
     pantone:"021", color:"#FD4F00", textColor:"#fff", num:"04",
     name:"VW Panel Bus",
-    img:"/assets/c4.jpg", photo:"/assets/car4_photo.webp", card:"/assets/card4.png", video:"/assets/car4_vid.mp4",
+    img:"/assets/c4.webp", photo:"/assets/car4_photo.webp", card:"/assets/card4.png", video:"/video/car4_vid.mp4",
     real:{
       make:"Volkswagen", model:"Type 2 Panel Van (T1)", year:"1950",
       origin:"Germany", engine:"1.1L Flat-4 Air-Cooled",
@@ -66,7 +66,7 @@ const cars = [
   {
     pantone:"2013", color:"#C8720A", textColor:"#fff", num:"05",
     name:"Chevrolet Camaro",
-    img:"/assets/c5.jpg", photo:"/assets/car5_photo.webp", card:"/assets/card5.png", video:"/assets/car5_vid.mp4",
+    img:"/assets/c5.webp", photo:"/assets/car5_photo.webp", card:"/assets/card5.png", video:"/video/car5_vid.mp4",
     real:{
       make:"Chevrolet", model:"Camaro (First Gen)", year:"1969",
       origin:"USA", engine:"5.7L V8",
@@ -82,7 +82,7 @@ const cars = [
   {
     pantone:"123", color:"#E8B800", textColor:"#111", num:"06",
     name:"Porsche 911 (RWB)",
-    img:"/assets/c6.jpg", photo:"/assets/car6_photo.webp", card:"/assets/card6.png", video:"/assets/car6_vid.mp4",
+    img:"/assets/c6.webp", photo:"/assets/car6_photo.webp", card:"/assets/card6.png", video:"/video/car6_vid.mp4",
     real:{
       make:"Porsche / RWB", model:"911 (930) Custom", year:"1973 base",
       origin:"Germany / Japan", engine:"2.7L Flat-6",

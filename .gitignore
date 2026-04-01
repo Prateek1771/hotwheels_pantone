@@ -2,7 +2,6 @@
 .agents
 .claude
 skills-lock.json
-video
 
 # Logs
 logs

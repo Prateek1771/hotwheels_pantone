@@ -43,7 +43,7 @@ export default function Intro() {
         {exitingIdx !== null && (
           <img
             className="intro-stage-car car-exit"
-            src={`/assets/svgs/image ${exitingIdx + 1}.svg`}
+            src={`/assets/image ${exitingIdx + 1}.webp`}
             alt=""
             draggable="false"
           />
@@ -51,7 +51,7 @@ export default function Intro() {
         <img
           key={selectedIdx}
           className="intro-stage-car car-enter"
-          src={`/assets/svgs/image ${selectedIdx + 1}.svg`}
+          src={`/assets/image ${selectedIdx + 1}.webp`}
           alt={cars[selectedIdx].name}
           draggable="false"
         />
@@ -69,7 +69,7 @@ export default function Intro() {
             >
               <img
                 className="intro-swatch-car"
-                src={`/assets/svgs/image ${i + 1}.svg`}
+                src={`/assets/image ${i + 1}.webp`}
                 alt={car.name}
                 draggable="false"
               />

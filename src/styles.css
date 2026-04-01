@@ -53,8 +53,9 @@ html, body { height:100%; overflow:hidden; font-family:'Barlow Condensed',sans-s
   will-change: transform;
 }
 .loader-car {
-  height: 55%;
-  width: auto;
+  width: 80%;
+  height: auto;
+  max-height: 70%;
   filter: drop-shadow(0 8px 24px rgba(0,0,0,.55));
   pointer-events: none;
   user-select: none;
@@ -65,13 +66,13 @@ html, body { height:100%; overflow:hidden; font-family:'Barlow Condensed',sans-s
     transform: translateX(-101%);
     animation-name: stripLifeH;
   }
-  .loader-car { height: auto; width: 28%; }
+  .loader-car { width: 55%; height: auto; max-height: 55%; }
 }
 
 /* ── NAV (layout via Tailwind, typography below) ── */
 nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
-.nav-tag { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:rgba(255,255,255,.38); }
-.nav-mono { font-family:'Courier New',monospace; font-size:10px; color:rgba(255,255,255,.25); letter-spacing:.06em; }
+.nav-tag { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:rgba(255,255,255,.65); }
+.nav-mono { font-family:'Courier New',monospace; font-size:10px; color:rgba(255,255,255,.5); letter-spacing:.06em; }
 
 /* ── SIDE DOTS ── */
 #sideDots { position:fixed; right:28px; top:50%; transform:translateY(-50%); z-index:900; display:flex; flex-direction:column; gap:11px; }
@@ -104,7 +105,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 .intro-bg-type { position:absolute; font-family:'Barlow Condensed',sans-serif; font-size:30vw; font-weight:900; letter-spacing:-.03em; color:rgba(255,255,255,.025); user-select:none; line-height:1; top:50%; left:-2%; transform:translateY(-50%); pointer-events:none; animation:bgBreathe 14s ease-in-out infinite; will-change:transform; }
 .intro-left { position:relative; z-index:2; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:60px 48px 60px; }
 .intro-title { font-family:'Barlow Condensed',sans-serif; font-size:clamp(48px,7vw,96px); font-weight:900; text-transform:uppercase; line-height:.88; letter-spacing:.01em; }
-.intro-title .outline { -webkit-text-stroke:1.5px rgba(255,255,255,.2); color:transparent; display:block; font-size:.36em; letter-spacing:.32em; }
+.intro-title .outline { -webkit-text-stroke:1.5px rgba(255,255,255,.5); color:transparent; display:block; font-size:.36em; letter-spacing:.32em; }
 .intro-title .x { color:var(--red); font-size:.55em; font-weight:400; }
 
 /* PANTONE — gradient pan animation */
@@ -120,10 +121,10 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 }
 
 /* Scroll cue */
-.scroll-cue { margin-top:48px; display:flex; flex-direction:column; align-items:center; gap:6px; color:rgba(255,255,255,.22); }
+.scroll-cue { margin-top:48px; display:flex; flex-direction:column; align-items:center; gap:6px; color:rgba(255,255,255,.5); }
 .scroll-cue-text { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; }
 @keyframes arrowBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
-.scroll-arrow { margin-top:2px; animation:arrowBounce 2s ease-in-out infinite; color:rgba(255,255,255,.22); }
+.scroll-arrow { margin-top:2px; animation:arrowBounce 2s ease-in-out infinite; color:rgba(255,255,255,.5); }
 
 /* INTRO RIGHT: Pantone color stack */
 .intro-right { position:relative; overflow:hidden; display:flex; }
@@ -208,7 +209,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
   font-size:9px;
   letter-spacing:.28em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.3);
+  color:rgba(255,255,255,.6);
   margin-bottom:12px;
 }
 .intro-descriptor {
@@ -216,7 +217,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
   font-size:11px;
   letter-spacing:.2em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.25);
+  color:rgba(255,255,255,.55);
   margin-top:22px;
   margin-bottom:0;
 }
@@ -293,7 +294,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 
 .ex-info { position:relative; z-index:2; transition:transform .55s ease .12s,opacity .55s ease .12s; transform:translateX(20px); opacity:0; }
 .exhibit.in-view .ex-info { transform:translateX(0); opacity:1; }
-.ex-series { font-family:'Courier New',monospace; font-size:10px; color:rgba(255,255,255,.38); letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; }
+.ex-series { font-family:'Courier New',monospace; font-size:10px; color:rgba(255,255,255,.65); letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px; }
 
 /* Car name — horizontal wipe reveal */
 .ex-name {
@@ -304,7 +305,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 }
 .exhibit.in-view .ex-name { clip-path:inset(0 0% 0 0); }
 
-.click-hint { font-family:'Courier New',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.28); display:flex; align-items:center; gap:8px; transition:color .2s; }
+.click-hint { font-family:'Courier New',monospace; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.5); display:flex; align-items:center; gap:8px; transition:color .2s; }
 .ex-right:hover .click-hint { color:rgba(255,255,255,.6); }
 .click-hint::before { content:''; width:0; height:1px; background:rgba(255,255,255,.3); display:inline-block; transition:width .3s cubic-bezier(.16,1,.3,1); }
 .ex-right:hover .click-hint::before { width:28px; }
@@ -329,12 +330,12 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
   font-family:'Barlow Condensed',sans-serif; font-size:clamp(52px,8vw,108px);
   font-weight:900; text-transform:uppercase; line-height:.88; color:#fff; margin-bottom:24px;
 }
-.finale-eyebrow { display:block; font-size:.32em; letter-spacing:.3em; -webkit-text-stroke:1px rgba(255,255,255,.2); color:transparent; margin-bottom:8px; }
+.finale-eyebrow { display:block; font-size:.32em; letter-spacing:.3em; -webkit-text-stroke:1px rgba(255,255,255,.55); color:transparent; margin-bottom:8px; }
 .finale-word { display:block; clip-path:inset(0 100% 0 0); transition:clip-path .7s cubic-bezier(.16,1,.3,1); }
 .finale.in-view .finale-word { clip-path:inset(0 0% 0 0); }
 .finale.in-view .finale-word:nth-child(3) { transition-delay:.14s; }
 
-.finale-sub { font-size:14px; color:rgba(255,255,255,.32); letter-spacing:.08em; margin-bottom:40px; text-transform:uppercase; font-family:'Courier New',monospace; }
+.finale-sub { font-size:14px; color:rgba(255,255,255,.6); letter-spacing:.08em; margin-bottom:40px; text-transform:uppercase; font-family:'Courier New',monospace; }
 .finale-swatches { display:flex; justify-content:center; width:300px; height:10px; border-radius:100px; overflow:hidden; margin:0 auto; }
 .finale-swatches div {
   flex:1; transform:scaleX(0); transform-origin:left; opacity:0;
@@ -378,7 +379,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 .mh-back:hover { border-color:rgba(255,255,255,.5); color:#fff; }
 .mh-meta {
   font-family:'Courier New',monospace; font-size:10px;
-  color:rgba(255,255,255,.28); letter-spacing:.16em; text-transform:uppercase;
+  color:rgba(255,255,255,.55); letter-spacing:.16em; text-transform:uppercase;
 }
 .mh-close {
   width:36px; height:36px; border-radius:50%;
