@@ -56,6 +56,7 @@ html, body { height:100%; overflow:hidden; font-family:'Barlow Condensed',sans-s
   width: 80%;
   height: auto;
   max-height: 70%;
+  object-fit: contain;
   filter: drop-shadow(0 8px 24px rgba(0,0,0,.55));
   pointer-events: none;
   user-select: none;
@@ -66,7 +67,7 @@ html, body { height:100%; overflow:hidden; font-family:'Barlow Condensed',sans-s
     transform: translateX(-101%);
     animation-name: stripLifeH;
   }
-  .loader-car { width: 55%; height: auto; max-height: 55%; }
+  .loader-car { width: auto; height: auto; max-width: 85%; max-height: 60%; }
 }
 
 /* ── NAV (layout via Tailwind, typography below) ── */
@@ -194,11 +195,13 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
   position:absolute;
   top:50%; left:50%;
   transform:translate(-50%, -50%);
-  height:85px;
-  width:auto;
-  pointer-events:none;
-  user-select:none;
-  filter:drop-shadow(0 8px 32px rgba(0,0,0,.5));
+  height: clamp(60px, 12vh, 95px);
+  width: auto;
+  max-width: 90%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,.5));
 }
 .car-enter { animation:carEnterRight .4s cubic-bezier(0.16,1,0.3,1) forwards; }
 .car-exit  { animation:carExitLeft  .35s ease-in forwards; }
@@ -453,7 +456,18 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 .hw-tribute-text { font-size:12px; color:rgba(255,255,255,.58); line-height:1.75; margin-bottom:24px; }
 .hw-img-wrap { position:relative; margin-bottom:24px; }
 .hw-img-glow { position:absolute; inset:-20px; border-radius:50%; opacity:.15; filter:blur(20px); pointer-events:none; }
-.hw-card-img { width:50%; max-width:300px; display:block; margin:0 auto; filter:drop-shadow(0 20px 40px rgba(0,0,0,.8)); position:relative; z-index:1; }
+.hw-card-img {
+  width: auto;
+  height: auto;
+  max-width: 70%;
+  max-height: 220px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,.8));
+  position: relative;
+  z-index: 1;
+}
 .hw-divider { height:1px; background:rgba(255,255,255,.06); margin:4px 0 20px; }
 .hw-spec-row { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid rgba(255,255,255,.04); }
 .hw-spec-key { font-family:'Courier New',monospace; font-size:9px; color:rgba(255,255,255,.44); letter-spacing:.12em; text-transform:uppercase; }
