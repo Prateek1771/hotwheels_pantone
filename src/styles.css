@@ -238,7 +238,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 
 /* LEFT: Pantone color panel */
 .ex-left {
-  position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:52px 44px;
+  position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:52px 44px 72px;
 }
 .ex-left::before {
   content:''; position:absolute; inset:0; pointer-events:none;
@@ -256,7 +256,8 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 
 .ex-chip {
   background:#fff; width:120px; border-radius:3px; overflow:hidden;
-  box-shadow:0 8px 28px rgba(0,0,0,.35); position:relative; z-index:2;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow:0 12px 40px rgba(0,0,0,0.4); position:relative; z-index:2;
   opacity:0; transform:translateY(24px);
   transition:transform .6s cubic-bezier(.16,1,.3,1) .38s, opacity .6s ease .38s;
 }
@@ -537,7 +538,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 @media (max-width:900px) {
   .exhibit { display:flex; flex-direction:column; grid-template-columns:unset; }
   .ex-right { order:1; flex:0 0 60vh; padding:24px 20px 28px; }
-  .ex-left  { order:2; flex:0 0 40vh; padding:32px 24px; }
+  .ex-left  { order:2; flex:0 0 40vh; padding:32px 24px 64px; }
   .ex-car-wrap { left:-20px; height:52%; }
   .ex-bg-num { font-size:48vw; }
   nav { padding:14px 20px; }
@@ -568,4 +569,14 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
   .modal-real-info { padding:24px 24px 32px; }
   .modal-hw-section { padding:24px 24px 60px; }
   .real-name { font-size:clamp(28px,7vw,44px); }
+}
+
+/* ── TRANSITIONS ── */
+.site-content {
+  opacity: 1;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.site-content.is-loading {
+  opacity: 0;
+  pointer-events: none;
 }

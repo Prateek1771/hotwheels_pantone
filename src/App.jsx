@@ -71,27 +71,29 @@ export default function App() {
 
   const counter = `${String(activeIdx + 1).padStart(2, '0')} / ${String(TOTAL_SECTIONS).padStart(2, '0')}`;
 
-  if (loading) return <Loader onDone={() => setLoading(false)} />;
-
   return (
     <>
-      <ProgressBar width={progWidth} bgColor={progColor} />
-      <Nav counter={counter} />
-      <SideDots activeIdx={activeIdx} cars={cars} onDotClick={scrollToSection} />
+      {loading && <Loader onDone={() => setLoading(false)} />}
+      
+      <div className={`site-content ${loading ? 'is-loading' : ''}`}>
+        <ProgressBar width={progWidth} bgColor={progColor} />
+        <Nav counter={counter} />
+        <SideDots activeIdx={activeIdx} cars={cars} onDotClick={scrollToSection} />
 
-      <div id="wrap" ref={wrapRef}>
-        <Intro />
-        <Ticker />
-        {cars.map((car, i) => (
-          <Exhibit key={i} car={car} index={i} onCarClick={setOpenCarIdx} />
-        ))}
-        <Finale />
+        <div id="wrap" ref={wrapRef}>
+          <Intro />
+          <Ticker />
+          {cars.map((car, i) => (
+            <Exhibit key={i} car={car} index={i} onCarClick={setOpenCarIdx} />
+          ))}
+          <Finale />
+        </div>
+
+        <Modal
+          car={openCarIdx !== null ? cars[openCarIdx] : null}
+          onClose={() => setOpenCarIdx(null)}
+        />
       </div>
-
-      <Modal
-        car={openCarIdx !== null ? cars[openCarIdx] : null}
-        onClose={() => setOpenCarIdx(null)}
-      />
     </>
   );
 }
