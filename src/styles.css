@@ -238,7 +238,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 
 /* LEFT: Pantone color panel */
 .ex-left {
-  position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:52px 44px 72px;
+  position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:52px 44px 110px;
 }
 .ex-left::before {
   content:''; position:absolute; inset:0; pointer-events:none;
@@ -538,7 +538,7 @@ nav img.logo { height:30px; filter:drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
 @media (max-width:900px) {
   .exhibit { display:flex; flex-direction:column; grid-template-columns:unset; }
   .ex-right { order:1; flex:0 0 60vh; padding:24px 20px 28px; }
-  .ex-left  { order:2; flex:0 0 40vh; padding:32px 24px 64px; }
+  .ex-left  { order:2; flex:0 0 40vh; padding:32px 24px 100px; }
   .ex-car-wrap { left:-20px; height:52%; }
   .ex-bg-num { font-size:48vw; }
   nav { padding:14px 20px; }
